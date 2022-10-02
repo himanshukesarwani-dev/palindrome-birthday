@@ -8,7 +8,7 @@ function reverseStr(str){
 // palindrome check function
 
 function isPalindrome(str){
-   (str === reverseStr(str));
+  return (str === reverseStr(str));
 }
 
 var dateStr = {
@@ -17,16 +17,17 @@ month: '',
 year:''
 };
 
+// convert date obj to date str obj
 
 function dateToStrConverter(date){
 
     //day conversion
 
     if(date.day<10){
-       dateStr.date = '0' + date.day;
+       dateStr.day = '0' + date.day;
     }
     else {
-        dateStr.date = date.day.toString();
+        dateStr.day = date.day.toString();
     }
 
     //month conversion
@@ -37,7 +38,7 @@ function dateToStrConverter(date){
         dateStr.month = date.month.toString();
     }
 
-    //yeat conversion
+    //year conversion
     dateStr.year = date.year.toString();
 
 
@@ -46,11 +47,45 @@ return dateStr;
 }
 
 
+function getAllDateFormats(date){
+
+    var dateStr = dateToStrConverter(date);
+
+    var ddmmyyyy = dateStr.day + dateStr.month + dateStr.year;
+    var mmddyyyy =  dateStr.month + dateStr.day + dateStr.year;
+    var yyyymmdd = dateStr.year +  dateStr.month + dateStr.day;
+    var ddmmyy = dateStr.day + dateStr.month + dateStr.year.slice(-2);
+    var mmddyy = dateStr.month + dateStr.day + dateStr.year.slice(-2);
+    var yymmdd = dateStr.year.slice(-2) + dateStr.month + dateStr.day;
+
+    return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
+
+}
+
+function checkPalidromeForAllFormats(date){
+    var listOfDates = getAllDateFormats(date);
+    var flag = false;
+
+    for(var i=0;i<6;i++){
+        if(isPalindrome(listOfDates[i]))
+        {
+            flag = true;
+            break;
+            
+        }
+
+    }
+return flag;
+}
+
+
+
+
 //test date obj
 var date = {
-    day:4,
-    month: 10,
-    year: 2022
+    day:2,
+    month: 11,
+    year: 2020,
 }
-console.log(date);
-console.log(dateToStrConverter(date));
+
+// console.log(checkPalidromeForAllFormats(date))
