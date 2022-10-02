@@ -5,3 +5,8 @@ function reverseStr(str){
 
 }
 
+// palindrome check function
+
+function isPalindrome(str){
+   (str === reverseStr(str));
+}
