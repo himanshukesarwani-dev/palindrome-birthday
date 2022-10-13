@@ -1,3 +1,40 @@
+var dateInput = document.querySelector("#input-date");
+var showBtn = document.querySelector("#show-btn");
+var resultBox = document.querySelector("#result-box");
+
+
+showBtn.addEventListener('click', clickEventHandler);
+
+
+function clickEventHandler(){
+   
+    if(dateInput.value !== ''){
+        var dateInArray = dateInput.value.split('-');
+        var date = {
+            day: Number(dateInArray[2]),
+            month: Number(dateInArray[1]),
+            year: Number(dateInArray[0])
+        };
+
+        if(checkPalidromeForAllFormats(date)){
+            resultBox.innerText = "It is a Palindrome Date! 🤩"
+        }
+        else {
+            [cP, pD] = getPreviousPalindromeDate(date);
+            [cN, nD] = getNextPalindromeDate(date);
+            resultBox.innerText = `The last Palindrome Date was ${pD.day}-${pD.month}-${pD.year} and you missed it by ${cP} days. The next Palindrome Date is ${nD.day}-${nD.month}-${nD.year} and you missed it by ${cN} days`
+
+            
+
+        }
+   }
+}
+
+
+
+
+
+
 // reverse string function
 
 function reverseStr(str){
@@ -219,8 +256,4 @@ function getPreviousDate(date){ //12 12 2022
 
 
 //test date obj
-var date = {
-    day:3,
-    month:11,
-    year: 2020,
-};
+
