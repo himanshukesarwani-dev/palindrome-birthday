@@ -148,26 +148,79 @@ function getNextDate(date){
 
 }
 
+// next palindrome date
 function getNextPalindromeDate(date){
-   var ctr = 0;
+   var ctrN = 0;
    var nextdate = getNextDate(date);
 
    while(1){
-    ctr++;
+    ctrN++;
     
     if(checkPalidromeForAllFormats(nextdate)){
         break;
     }
     nextdate = getNextDate(nextdate);
    }
-   return [ctr, nextdate]
+   return [ctrN, nextdate]
 }
   
 
+// previous palindrome date
+function getPreviousPalindromeDate(date){
+
+    var ctrP = 0;
+    var previousDate = getPreviousDate(date);
+
+    while(1){
+        ctrP++;
+        if(checkPalidromeForAllFormats(previousDate)){
+            break;
+        }
+        previousDate = getPreviousDate(previousDate);
+    }
+    return [ctrP, previousDate];
+
+}
+
+
+// get Previous Date
+function getPreviousDate(date){ //12 12 2022
+    var day = date.day - 1;
+    var month = date.month;
+    var year = date.year;
+ 
+
+    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30,31]
+ 
+// 1 1 2020
+
+    if(day <1){
+        month -=1; 
+        if(month < 1){
+            year -=1;
+            month = 12;
+            day = daysInMonth[month - 1] 
+
+        }
+        else {
+            day = daysInMonth[month - 1] 
+        }
+       
+    }
+
+    return {
+        day: day,
+        month:month,
+        year:year
+    }
+
+    
+}
+
+
 //test date obj
 var date = {
-    day:28,
-    month: 2,
-    year: 2021,
+    day:3,
+    month:11,
+    year: 2020,
 };
-
