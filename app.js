@@ -148,15 +148,26 @@ function getNextDate(date){
 
 }
 
+function getNextPalindromeDate(date){
+   var ctr = 0;
+   var nextdate = getNextDate(date);
 
+   while(1){
+    ctr++;
+    
+    if(checkPalidromeForAllFormats(nextdate)){
+        break;
+    }
+    nextdate = getNextDate(nextdate);
+   }
+   return [ctr, nextdate]
+}
+  
 
 //test date obj
 var date = {
     day:28,
     month: 2,
-    year: 2016,
-}
-console.log(getNextDate(date));
+    year: 2021,
+};
 
-
-// console.log(checkPalidromeForAllFormats(date))
