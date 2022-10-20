@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
+
+
+:root {
+    --main-color: #98A8F8;
+}
+
+body {
+    font-family: 'Epilogue', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  
+}
+
+label {
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+nav h1{
+    text-align: center;
+    margin-top: 0;
+    background-color: var(--main-color);
+    padding: 40px;
+    color: white;
+}
+
+
+input, label {
+    width: 15%;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#celebrate-img, #sad-img {
+    display: none;
+    margin: 5px auto;
+   
+}
+#result-box {
+    width: 50%;
+}
+
+p{
+    margin: 20px auto;
+}
+
+input{
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+footer{
+
+    margin-top: 250px;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+#show-btn {
+    background-color: var(--main-color);
+    color:white;
+    border-radius: 10px;
+    padding: 10px 25px;
+    border: none;
+    margin: 15px auto;
+}
+
+#show-btn:hover{
+    cursor: pointer;
+}
+
